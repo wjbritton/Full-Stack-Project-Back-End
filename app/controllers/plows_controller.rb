@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PlowsController < ApplicationController
-  before_action :set_plow, only: [:show, :update, :destroy]
+  before_action :set_plow, only: %i[show update destroy]
 
   # GET /plows
   def index
@@ -39,13 +41,14 @@ class PlowsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_plow
-      @plow = Plow.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def plow_params
-      params.require(:plow).permit(:life_time_run_time, :last_run_time, :year_make, :integer, :model, :string)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_plow
+    @plow = Plow.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def plow_params
+    params.require(:plow).permit(:last_run_time, :year_make, :model)
+  end
 end
