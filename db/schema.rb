@@ -24,14 +24,13 @@ ActiveRecord::Schema.define(version: 20170825213057) do
   end
 
   create_table "plows", force: :cascade do |t|
-    t.time     "life_time_run_time"
     t.time     "last_run_time"
     t.string   "year_make"
     t.string   "integer"
     t.string   "model"
     t.string   "string"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "runs", force: :cascade do |t|
