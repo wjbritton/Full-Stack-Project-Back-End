@@ -18,7 +18,6 @@ class PlowsController < ApplicationController
   # POST /plows
   def create
     @plow = Plow.new(plow_params)
-
     if @plow.save
       render json: @plow, status: :created, location: @plow
     else
@@ -46,9 +45,10 @@ class PlowsController < ApplicationController
   def set_plow
     @plow = Plow.find(params[:id])
   end
-
   # Only allow a trusted parameter "white list" through.
   def plow_params
     params.require(:plow).permit(:last_run_time, :year_make, :model)
   end
+
+  private
 end
