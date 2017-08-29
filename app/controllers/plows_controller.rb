@@ -29,6 +29,7 @@ class PlowsController < ApplicationController
   def update
     if @plow.update(plow_params)
       render json: @plow
+
     else
       render json: @plow.errors, status: :unprocessable_entity
     end
@@ -47,8 +48,6 @@ class PlowsController < ApplicationController
   end
   # Only allow a trusted parameter "white list" through.
   def plow_params
-    params.require(:plow).permit(:last_run_time, :year_make, :model)
+    params.require(:plows).permit(:last_run_time, :year_make, :model)
   end
-
-  private
 end

@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170825213057) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "email",           null: false
     t.string   "token",           null: false
     t.string   "password_digest", null: false
